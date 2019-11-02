@@ -6,3 +6,8 @@
     <a href="/poems/:id/edit">Edit a poem</a><br>
     <a href="/poets/index">Browse other poets</a><br>
     <a href="/poems/index">Browse other poems</a><br>
+
+    <p>Review your work</p>
+    <% @poet.poems.each do |poem|%>
+        <%= poem.title %>
+        <%end%>

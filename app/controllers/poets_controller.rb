@@ -2,10 +2,6 @@ require 'pry'
 class PoetsController < ApplicationController
 
     
-    get '/poets' do 
-        @poets = Poet.all 
-        erb:"/poets/index"
-    end 
 
     get "/poets/new" do 
         erb:"/poets/new"
@@ -39,6 +35,10 @@ class PoetsController < ApplicationController
         erb:"/poets/show"
     end 
 
+    get '/poets' do 
+        @poets = Poet.all 
+        erb:"/poets/index"
+    end 
 
 
 end    
