@@ -1,0 +1,6 @@
+class PoetsController < ApplicationController
+
+
+
+
+end 
