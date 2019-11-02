@@ -6,6 +6,11 @@ class PoetsController < ApplicationController
         erb:"/poets/index"
     end 
 
+    get "/poets/new" do
+        erb:"/poets/new"
+      end
+    
+
 
     post '/poets' do 
         

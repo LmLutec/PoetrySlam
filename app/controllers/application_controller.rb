@@ -9,10 +9,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
 
-  get "/" do
-    erb:"/poets/new"
-  end
-
 
   helpers do 
 
