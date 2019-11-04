@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 2) do
 
   create_table "poems", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.date   "date"
-    t.string "poet_id"
+    t.string  "title"
+    t.string  "content"
+    t.date    "date"
+    t.integer "poet_id"
   end
 
   create_table "poets", force: :cascade do |t|

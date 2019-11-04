@@ -5,7 +5,7 @@ class CreatePoems < ActiveRecord::Migration
             t.string :title
             t.string :content
             t.date :date 
-            t.string :poet_id
+            t.integer :poet_id
         end 
     end 
 
