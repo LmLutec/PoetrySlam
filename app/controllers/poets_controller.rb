@@ -6,7 +6,7 @@ class PoetsController < ApplicationController
         erb:"/poets/index"
     end 
 
-    get "/poets/new" do 
+    get '/poets/new' do 
         erb:"/poets/new"
     end
 
@@ -21,11 +21,11 @@ class PoetsController < ApplicationController
         end 
     end 
 
-    get "/poets/login" do 
+    get '/poets/login' do 
         erb:"/poets/login"
     end 
     
-    post "/login" do 
+    post '/login' do 
         @poet = Poet.find_by(poet_name: params[:poet_name])
             if @poet && @poet.authenticate(params[:password])
                 session[:poet_id] = @poet.id 
@@ -39,12 +39,24 @@ class PoetsController < ApplicationController
         end     
     end 
 
-    get "/poets/:id" do 
+    get '/poets/:id' do 
         @poet = Poet.find_by(id: params[:id])
         erb:"/poets/show"
     end 
 
-  
+    get '/poets/:id/edit'
+        @poet = Poet.find_by(id: params[:id])
+        erb:"/poets/edit"
+    end
 
+    patch '/poets/:id' do 
+        @poet = Poet.find_by(id: params[:id])
+        @poet.poet_name = params[:poet_name]
+        @poet.city = params[:city]
+        @poet.state = params[:state]
+        @poet.age = params[:age]
+        @poet.email = params[:email]
+        @poet.password = params[:password]
+    end 
 end    
     

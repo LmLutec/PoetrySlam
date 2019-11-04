@@ -1,0 +1,15 @@
+<label>Edit view</label>
+
+<form action="/poets/<%= @poet.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+Poet Name: <input type="text" name="poet_name">
+City: <input type="text" name="city">
+State: <input type="text" name="state">
+Age: <input type="integer" name="age">
+Email: <input type="text" name="email">
+Password: <input type="text" name="password">
+
+
+<input type="submit" value="Edit Poet">
+</form>
