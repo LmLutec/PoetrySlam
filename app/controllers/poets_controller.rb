@@ -11,14 +11,9 @@ class PoetsController < ApplicationController
     end
 
     post '/poets' do 
-        @poets = Poet.all
-        if params[:poet_name] != "" && params[:email] != "" && params[:city] != "" && params[:state] != "" && params[:age] != "" && params[:password] != ""
-            @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
-            session[:poet_id] = @poet.id
-            redirect "/poets/#{@poet.id}"    
-        else 
-            redirect "/poets/new"
-        end 
+        @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
+        session[:poet_id] = @poet.id
+        erb:"/poets/#{@poet.id}"    
     end 
 
     get '/poets/login' do 
@@ -44,7 +39,7 @@ class PoetsController < ApplicationController
         erb:"/poets/show"
     end 
 
-    get '/poets/:id/edit'
+    get '/poets/:id/edit' do
         @poet = Poet.find_by(id: params[:id])
         erb:"/poets/edit"
     end
@@ -59,5 +54,6 @@ class PoetsController < ApplicationController
         @poet.password = params[:password]
         @poet.save 
     end 
+
 end    
     
