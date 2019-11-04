@@ -12,11 +12,11 @@ class ApplicationController < Sinatra::Base
 
   helpers do 
 
-    def self.current_user
-      @user = Poet.find_by(id:session["user_id"]) 
+    def current_user
+      @poet = Poet.find_by(id:session["poet_id"]) 
     end 
   
-    def self.logged_in?
+    def logged_in?
       if current_user
         true 
       else

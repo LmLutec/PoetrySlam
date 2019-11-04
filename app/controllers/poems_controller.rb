@@ -1,3 +1,5 @@
+require 'pry'
+
 class PoemsController < ApplicationController
 
     get '/poems' do 
@@ -10,6 +12,8 @@ class PoemsController < ApplicationController
 
     post '/poems' do 
         @poem = Poem.create(title: params[:title], date: params[:date], content: params[:content])
+        current_user.poems << @poem  
+        erb:"poems/#{@poem.id}"
     end 
 
 end 
