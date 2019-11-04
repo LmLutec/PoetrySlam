@@ -1,0 +1,15 @@
+<label>Edit page</label>
+
+<form action="/poems/<%=@poem.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch"> 
+
+    Title: <input type="text" name="title">
+    Date: <input type="date" name="date">
+    Body: <input type="text" name="content">
+
+
+
+
+
+<input type="submit" value="Edit Poem">
+</form>

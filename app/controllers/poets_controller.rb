@@ -57,6 +57,7 @@ class PoetsController < ApplicationController
         @poet.age = params[:age]
         @poet.email = params[:email]
         @poet.password = params[:password]
+        @poet.save 
     end 
 end    
     
