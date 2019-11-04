@@ -33,16 +33,18 @@ class PoetsController < ApplicationController
             end 
     end 
 
-    get "/poets/:id" do 
-        @poet = Poet.find_by(id: params[:id])
-        erb:"/poets/show"
-    end 
-
     get 'logout' do 
         if logged_in?
             session.clear
         end     
     end 
+
+    get "/poets/:id" do 
+        @poet = Poet.find_by(id: params[:id])
+        erb:"/poets/show"
+    end 
+
+  
 
 end    
     
