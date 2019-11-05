@@ -13,8 +13,7 @@ class PoemsController < ApplicationController
     post '/poems' do  
         @poem = Poem.create(title: params[:title], date: params[:date], content: params[:content])
         current_user.id = @poem.poet_id 
-        current_user.poems << @poem 
-        binding.pry  
+        current_user.poems << @poem  
         redirect 'poems/#{@poem.id}'
     end 
 
