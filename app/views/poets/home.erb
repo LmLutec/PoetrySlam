@@ -8,7 +8,7 @@
     <br><br>
     <h3>Review your work</h3>
     <% @poet.poems.each do |poem|%>
-       <a href=/poems/<%=poem.id%>/edit> <%= poem.title %></a><br>
+       <a href="/poems/<%=poem.id%>/edit"> <%= poem.title %></a><br>
         <%end%>
 
         
