@@ -12,12 +12,14 @@ class PoemsController < ApplicationController
 
     post '/poems' do  
         @poem = Poem.create(title: params[:title], date: params[:date], content: params[:content])
-        current_user.poems << @poem  
+        current_user.id = @poem.poet_id 
+        current_user.poems << @poem 
+        binding.pry  
         redirect 'poems/#{@poem.id}'
     end 
 
     get 'poems/:id' do 
-        @poem = Poem.find_by(content: params[:content])
+        @poem = Poem.find_by(id: params[:id])
         erb:'poems/show'
     end 
 
