@@ -7,14 +7,14 @@ class PoemsController < ApplicationController
     end 
 
     get '/poems/new' do 
-        erb:'poems/new'
+            erb:'poems/new'
     end 
 
-    post '/poems' do  
-        @poem = Poem.create(title: params[:title], date: params[:date], content: params[:content])
-        current_user.id = @poem.poet_id 
-        current_user.poems << @poem  
-        redirect to "poems/#{@poem.id}"
+    post '/poems' do 
+            @poem = Poem.create(title: params[:title], date: params[:date], content: params[:content])
+            current_user.id = @poem.poet_id 
+            current_user.poems << @poem  
+            redirect to "poems/#{@poem.id}" 
     end 
 
     get '/poems/:id' do 
