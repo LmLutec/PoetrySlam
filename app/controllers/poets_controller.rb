@@ -13,7 +13,7 @@ class PoetsController < ApplicationController
     post '/poets' do 
         @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
         session[:poet_id] = @poet.id
-        redirect to "/poets/#{@poet.id}"    
+        erb:"/poets/home"    
     end 
 
     get '/poets/login' do 
@@ -21,11 +21,16 @@ class PoetsController < ApplicationController
     end 
     
     post '/login' do 
-        @poet = Poet.find_by(poet_name: params[:poet_name])
+        if !logged_in?
+            @poet = Poet.find_by(poet_name: params[:poet_name])
             if @poet && @poet.authenticate(params[:password])
                 session[:poet_id] = @poet.id 
                 erb:"/poets/home"
             end 
+        
+        else 
+            erb:"/poets/home"
+        end 
     end 
 
     get '/logout' do 

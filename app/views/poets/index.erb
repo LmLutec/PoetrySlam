@@ -1,2 +1,5 @@
 <h1>Poets on PoetrySlam</h1>
 
+<% @poets.each do |poet| %>
+   <a href="/poets/<%=poet.id%>"> <%=poet.poet_name%></a><br>
+    <%end%>
