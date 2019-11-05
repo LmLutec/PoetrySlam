@@ -14,7 +14,7 @@ class PoemsController < ApplicationController
         @poem = Poem.create(title: params[:title], date: params[:date], content: params[:content])
         current_user.id = @poem.poet_id 
         current_user.poems << @poem  
-        erb:"poems/#{@poem.id}"
+        redirect to "poems/#{@poem.id}"
     end 
 
     get '/poems/:id' do 

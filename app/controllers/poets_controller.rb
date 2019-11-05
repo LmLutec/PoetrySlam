@@ -13,7 +13,7 @@ class PoetsController < ApplicationController
     post '/poets' do 
         @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
         session[:poet_id] = @poet.id
-        erb:"/poets/#{@poet.id}"    
+        redirect to "/poets/#{@poet.id}"    
     end 
 
     get '/poets/login' do 
@@ -28,7 +28,7 @@ class PoetsController < ApplicationController
             end 
     end 
 
-    get 'logout' do 
+    get '/logout' do 
         if logged_in?
             session.clear
         end     
