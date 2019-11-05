@@ -35,9 +35,10 @@ class PoemsController < ApplicationController
         @poem.save
     end 
 
-    delete 'poems/:id/delete' do 
+    delete '/poems/:id/delete' do 
         @poem = Poem.find_by(id: params[:id])
         @poem.delete 
+        redirect to "/poets/login"
     end 
 
 end 

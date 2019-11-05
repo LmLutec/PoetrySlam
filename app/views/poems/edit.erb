@@ -1,4 +1,4 @@
-<label>Edit page</label>       
+<h1>Edit your poem</h1>       
 <form action="/poems/<%=@poem.id%>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch"> 
 
@@ -11,4 +11,8 @@
 
 
 <input type="submit" value="Edit Poem">
+
+
 </form>
+<br>
+<a href="/poems/<%=@poem.id%>/delete"><h3>Delete poem here</h3></a>
