@@ -60,5 +60,12 @@ class PoetsController < ApplicationController
         @poet.save 
     end 
 
+    delete '/poets/:id/delete' do 
+        @poet = current_user
+        @poet.delete
+        erb:"/poets/new"
+    end 
+
+
 end    
     

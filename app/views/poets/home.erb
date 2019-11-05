@@ -10,5 +10,8 @@
     <% @poet.poems.each do |poem|%>
        <a href="/poems/<%=poem.id%>/edit"> <%= poem.title %></a><br>
         <%end%>
-
+<form action="/poets/<%=@poet.id%>/delete" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" value="DELETE ACCOUNT">
+</form>
         
