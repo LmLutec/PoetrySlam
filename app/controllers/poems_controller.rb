@@ -37,8 +37,10 @@ class PoemsController < ApplicationController
 
     delete '/poems/:id/delete' do 
         @poem = Poem.find_by(id: params[:id])
+        @poet = current_user
         @poem.delete 
-        redirect to "/poets/login"
+        session[:id] = @poet.id 
+        erb:"/poets/home"
     end 
 
 end 
