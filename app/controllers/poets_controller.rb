@@ -33,11 +33,13 @@ class PoetsController < ApplicationController
         end 
     end 
 
-    get '/logout' do 
+    post '/logout' do 
         if logged_in?
             session.clear
+            redirect to "/poets/login"
         end     
     end 
+
 
     get '/poets/:id' do 
         @poet = Poet.find_by(id: params[:id])
