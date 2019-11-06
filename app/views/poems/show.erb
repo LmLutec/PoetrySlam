@@ -1,10 +1,11 @@
-<label>Show Page</label>
-
+<h3>Poem created!</h3>
+    <br>
     <form action="/poems/<%=@poem.id%>/delete" method="post">       
         <input id="hidden" type="hidden" name="_method" value="delete">
-
-        <%= @poem.content %>
-
-        <input type="submit" value="delete">
+        <b>Title: </b><%= @poem.title%><br><br>
+        <b>Poem: </b><%= @poem.content %>
+        <br><br>
+        <input type="submit" value="Delete Poem">
     </form>
-
+    <br><br><br>
+    <a href="/poets/home"><button>Home</button></a>

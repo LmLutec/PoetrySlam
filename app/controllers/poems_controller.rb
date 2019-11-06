@@ -35,8 +35,8 @@ class PoemsController < ApplicationController
     end 
 
     get '/poems/:id/edit' do
+        @poem = Poem.find_by(id: params[:id]) 
         if logged_in? && current_user.id == @poem.poet_id 
-            @poem = Poem.find_by(id: params[:id]) 
             erb:'poems/edit'
         else 
             erb:"/poets/login"
