@@ -7,12 +7,11 @@ class PoemsController < ApplicationController
     end 
 
     get '/poems/new' do 
-            erb:'poems/new'  
+        erb:'poems/new'  
     end 
 
     post '/poems' do 
         if logged_in?
-            binding.pry 
             @poem = Poem.create(title: params[:title], date: params[:date], content: params[:content])
             current_user.id = @poem.poet_id 
             current_user.poems << @poem  

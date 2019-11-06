@@ -16,6 +16,12 @@ class PoetsController < ApplicationController
         erb:"/poets/home"    
     end 
 
+    get '/poets/home' do 
+        @poet = current_user
+        erb:"/poets/home"
+    end 
+
+
     get '/poets/login' do 
         erb:"/poets/login"
     end 
