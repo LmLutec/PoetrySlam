@@ -1,10 +1,12 @@
 <h1>Welcome <%=@poet.poet_name%></h1>
 <br>
 <br>
-<p>What would you like to do?</p>
-    <a href="/poems/new">Create a new poem</a><br>
-    <a href="/poets">Browse other poets</a><br>
-    <a href="/poems">Browse other poems</a><br>
+<h3>What would you like to do?</h3>
+   <ul>
+    <li><a href="/poems/new">Create a new poem</a></li><br>
+    <li><a href="/poets">Browse other poets</a></li><br>
+    <li><a href="/poems">Browse other poems</a></li><br>
+    </ul>
     <br><br>
 
     <h3>Review your work</h3>
@@ -12,11 +14,10 @@
        <a href="/poems/<%=poem.id%>/edit"> <%= poem.title %></a><br>
         <%end%><br><br>
 
-        <h4>Logout</h4>
     <form action="/logout" method="post">
-        <input type="submit" value="logout" name="logout" >
+        <input type="submit" value="Logout" name="logout" >
     </form>
-<br><br><br>
+<br><br><br><br><br><br><br><br><br>
 <form action="/poets/<%=@poet.id%>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input type="submit" value="DELETE ACCOUNT">
