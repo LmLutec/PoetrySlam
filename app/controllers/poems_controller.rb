@@ -7,7 +7,11 @@ class PoemsController < ApplicationController
     end 
 
     get '/poems/new' do 
-        erb:'poems/new'  
+        if logged_in?
+            erb:'/poems/new'  
+        else 
+            erb:"/poets/new"
+        end 
     end 
 
     post '/poems' do 
