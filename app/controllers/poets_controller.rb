@@ -11,9 +11,18 @@ class PoetsController < ApplicationController
     end
 
     post '/poets' do 
-        @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
-        session[:poet_id] = @poet.id
-        erb:"/poets/home"    
+        @poets = Poet.all 
+        if !logged_in?
+            if params[:poet_name] != "" && params[:email] != "" && params[:city] != "" && params[:state] != "" && params[:age] != "" && params[:password] != ""
+                @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
+                session[:poet_id] = @poet.id
+                erb:"/poets/home"  
+            else 
+                redirect to "/poets/new"
+            end 
+        else 
+            erb:"/poets/home"
+        end 
     end 
 
     get '/poets/home' do 
