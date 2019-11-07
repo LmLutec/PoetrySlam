@@ -1,8 +1,10 @@
 <h1>Poem's index page</h1>
 
-
-
-
+<ul>
+<% @poems.each do |poem| %>
+    <a href="/poems/<%=poem.id%>"><li><%=poem.title%></li></a><br>
+<% end %> 
+</ul>
 
 
 <a href="/poets/home"><button>Home</button></a>

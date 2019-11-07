@@ -4,6 +4,8 @@ class PoemsController < ApplicationController
 
     get '/poems' do 
         if logged_in?
+            @poems = Poem.all
+            @poets = Poet.find_by(id: params[:id])
             erb:'/poems/index'
         else 
             erb:"/poets/login"
@@ -31,6 +33,7 @@ class PoemsController < ApplicationController
 
     get '/poems/:id' do 
         @poem = Poem.find_by(id: params[:id])
+        @poet = current_user 
         erb:'poems/show'
     end 
 
@@ -62,6 +65,8 @@ class PoemsController < ApplicationController
             @poem.delete 
             session[:id] = @poet.id 
             erb:"/poets/home"
+        else 
+            erb:"/poems/error"
         end 
     end 
 

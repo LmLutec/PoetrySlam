@@ -12,8 +12,14 @@
 
 <input type="submit" value="Edit Poem">
 <br><br>
-<a href="/poems/<%=@poem.id%>">Delete poem here</a>
 </form>
 <br>
+
+<form action="/poems/<%=@poem.id%>/delete" method="post"> 
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Poem">
+</form>
+
+
 
 <a href="/poets/home"><button>Home</button></a>

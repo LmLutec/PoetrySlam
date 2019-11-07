@@ -7,7 +7,7 @@ Email: <%=@poet.email%>
 <ul>
 <b><%=@poet.poet_name.capitalize%>'s poems</b>
 <%@poet.poems.each do |poem|%>
-   <li><a href="/poems/<%=@poem.id%>"><%=poem.title%></a></li>
+   <li><a href="/poems/<%=poem.id%>"><%=poem.title%></a></li>
     <%end%>
 </ul>
 <br>

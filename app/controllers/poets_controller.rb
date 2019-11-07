@@ -58,7 +58,7 @@ class PoetsController < ApplicationController
 
     get '/poets/:id' do 
         @poet = Poet.find_by(id: params[:id])
-        @poem = current_user.poems 
+        @poem = Poem.find_by(id: params[:id])  
         erb:"/poets/show"
     end 
 
