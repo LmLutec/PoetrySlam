@@ -2,9 +2,9 @@
 <form action="/poems/<%=@poem.id%>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch"> 
 
-    Title: <input type="text" name="title">
-    Date: <input type="date" name="date">
-    Body: <input type="text" name="content">
+    Title: <input type="text" name="title" value="<%=@poem.title%>">
+    Date: <input type="date" name="date" value="<%=@poem.date%>">
+    Body: <input type="textarea" name="content" value="<%=@poem.content%>">
 
 
 

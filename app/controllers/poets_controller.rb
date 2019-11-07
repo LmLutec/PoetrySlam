@@ -13,7 +13,7 @@ class PoetsController < ApplicationController
     post '/poets' do 
         @poets = Poet.all 
         if !logged_in?
-            if params[:poet_name] != "" && params[:email] != "" && params[:city] != "" && params[:state] != "" && params[:age] != "" && params[:password] != ""
+            if params[:poet_name].strip != "" && params[:email].strip != "" && params[:city].strip != "" && params[:state].strip != "" && params[:age].strip != "" && params[:password].strip != ""
                 @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
                 session[:poet_id] = @poet.id
                 erb:"/poets/home"  
