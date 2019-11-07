@@ -11,15 +11,17 @@
 
     <h3>Review your work</h3>
     <% @poet.poems.each do |poem|%>
-       <a href="/poems/<%=poem.id%>/edit"> <%= poem.title %></a><br>
+      <ul>
+        <li><a href="/poems/<%=poem.id%>/edit"> <%= poem.title %></a></li><br>
         <%end%><br><br>
-
+      </ul>
+<br><br><br><br><br>
     <form action="/logout" method="post">
         <input type="submit" value="Logout" name="logout" >
     </form>
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+<b>This link will delete your account permanently</b>
 <form action="/poets/<%=@poet.id%>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input type="submit" value="DELETE ACCOUNT">
 </form>
-        

@@ -1,7 +1,17 @@
 <h1>About this Poet:</h1>
-Poet Name: <%=@poet.poet_name%><br>
-From: <%=@poet.city%>,<%=@poet.state%><br>
+Poet Name: <%=@poet.poet_name.capitalize%><br>
+From: <%=@poet.city.capitalize%>, <%=@poet.state.capitalize%><br>
 Age: <%=@poet.age%><br>
 Email: <%=@poet.email%>
-
-<%=@poet.poems%>
+<br><br><br>
+<ul>
+<b><%=@poet.poet_name.capitalize%>'s poems</b>
+<%@poet.poems.each do |poem|%>
+   <li><a href="/poems/<%=@poem.id%>"><%=poem.title%></a></li>
+    <%end%>
+</ul>
+<br>
+<br><br>
+<a href="/poets">Other Poets</a>
+<br><br><br>
+<a href="/poets/home"><button>Home</button></a>

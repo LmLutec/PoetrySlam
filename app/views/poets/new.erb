@@ -2,12 +2,12 @@
 <br>
 <form action="/poets" method="POST">
 
-Poet Name: <input type="text" name="poet_name">
-City: <input type="text" name="city">
-State: <input type="text" name="state">
-Age: <input type="integer" name="age">
-Email: <input type="text" name="email">
-Password: <input type="text" name="password">
+Poet Name: <input type="text" name="poet_name" required>
+City: <input type="text" name="city" required>
+State: <input type="text" name="state" required>
+Age: <input type="integer" name="age" required>
+Email: <input type="email" name="email" required>
+Password: <input type="text" name="password" required>
 
 
 <input type="submit" value="Sign-Up">
@@ -16,5 +16,5 @@ Password: <input type="text" name="password">
 <br>
 <br>
 <br>
-<b>Returning Poets</b> <br>
+<b>Already registered?</b> <br>
 <a href="/poets/login"><button><b>Login</b></button></a>
