@@ -11,14 +11,15 @@
 
 
 <input type="submit" value="Edit Poem">
-<br><br>
-</form>
-<br>
 
 <form action="/poems/<%=@poem.id%>/delete" method="post"> 
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Poem">
 </form>
+
+</form>
+
+
 
 
 

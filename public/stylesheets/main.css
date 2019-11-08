@@ -1,7 +1,7 @@
 @media screen {
   /* --- Reset Styles --- */
   * {
-    list-style-type: circle;
+    list-style-type: square;
     margin: auto;
     padding: 5px;
   }
