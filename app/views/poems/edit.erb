@@ -2,16 +2,18 @@
 <form action="/poems/<%=@poem.id%>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch"> 
 
-    Title: <input type="text" name="title" value="<%=@poem.title%>">
-    Date: <input type="date" name="date" value="<%=@poem.date%>">
-    Body: <input type="text" name="content" value="<%=@poem.content%>">
+    Title: <input type="text" name="title" value="<%=@poem.title%>" required>
+    Date: <input type="date" name="date" value="<%=@poem.date%>" required><br><br>
+    Poem: <textarea id="poem" name="content" value="<%=@poem.content%>" required></textarea><br><br>
+    
+    
 
 
 
 
 
 <input type="submit" value="Edit Poem">
-
+<br><br><br>
 <form action="/poems/<%=@poem.id%>/delete" method="post"> 
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Poem">
@@ -21,6 +23,6 @@
 
 
 
-
+<br><br>
 
 <a href="/poets/home"><button>Home</button></a>
