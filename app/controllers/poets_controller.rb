@@ -11,15 +11,19 @@ class PoetsController < ApplicationController
     end
 
     post '/poets' do 
-        @poets = Poet.all 
         if !logged_in?
-            if params[:poet_name].strip != "" && params[:email].strip != "" && params[:city].strip != "" && params[:state].strip != "" && params[:age].strip != "" && params[:password].strip != ""
+            #if params[:poet_name].strip != "" && params[:email].strip != "" && params[:city].strip != "" && params[:state].strip != "" && params[:age].strip != "" && params[:password].strip != ""
                 @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
-                session[:poet_id] = @poet.id
-                erb:"/poets/home"  
-            else 
+                if @poet 
+                    session[:poet_id] = @poet.id
+                    erb:"/poets/home"  
+                else 
+                    flash[:notice] = "Fill out all fields"
+                    redirect to "/poets/new"
+                end 
+            #else 
                 redirect to "/poets/new"
-            end 
+            #end 
         else 
             erb:"/poets/home"
         end 
@@ -51,8 +55,8 @@ class PoetsController < ApplicationController
     post '/logout' do 
         if logged_in?
             session.clear
-            redirect to "/poets/login"
         end     
+        redirect to "/poets/login"
     end 
 
 
