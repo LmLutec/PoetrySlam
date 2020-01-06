@@ -1,4 +1,5 @@
 require 'pry'
+
 class PoetsController < ApplicationController
 
     get '/poets' do 
@@ -12,18 +13,17 @@ class PoetsController < ApplicationController
 
     post '/poets' do 
         if !logged_in?
-            #if params[:poet_name].strip != "" && params[:email].strip != "" && params[:city].strip != "" && params[:state].strip != "" && params[:age].strip != "" && params[:password].strip != ""
+            if params[:poet_name].strip != "" && params[:email].strip != "" && params[:city].strip != "" && params[:state].strip != "" && params[:age].strip != "" && params[:password].strip != ""
                 @poet = Poet.create(poet_name: params[:poet_name], email: params[:email], city: params[:city], state: params[:state], age: params[:age], password: params[:password])
-                if @poet 
+                if @poet.save
                     session[:poet_id] = @poet.id
                     erb:"/poets/home"  
                 else 
-                    flash[:notice] = "Fill out all fields"
                     redirect to "/poets/new"
                 end 
-            #else 
+            else 
                 redirect to "/poets/new"
-            #end 
+            end 
         else 
             erb:"/poets/home"
         end 

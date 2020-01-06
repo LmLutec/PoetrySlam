@@ -47,27 +47,25 @@ class PoemsController < ApplicationController
     end 
 
     patch '/poems/:id' do 
+
+        @poet = current_user
         @poem = Poem.find_by(id: params[:id])
-        if logged_in? && current_user.id == @poem.poet_id 
-            @poem.title = params[:title]
-            @poem.date = params[:date]
-            @poem.content = params[:content]
+    
+            @poem.update(:title => params[:title])
+            @poem.update(:date => params[:date])
+            @poem.update(:content => params[:content])
             @poem.save
-        else 
+         
             erb:"/poets/home"
-        end 
+         
     end 
 
     delete '/poems/:id/delete' do 
+    
             @poem = Poem.find_by(id: params[:id])
-        if logged_in? && current_user.id == @poem.poet_id 
-            @poet = current_user
             @poem.delete 
-            session[:id] = @poet.id 
+            #session[:id] = @poet.id 
             erb:"/poets/home"
-        else 
-            erb:"/poems/error"
-        end 
     end 
 
 end 
