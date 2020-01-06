@@ -61,7 +61,7 @@ class PoemsController < ApplicationController
     end 
 
     delete '/poems/:id/delete' do 
-    
+            @poet = current_user
             @poem = Poem.find_by(id: params[:id])
             @poem.delete 
             #session[:id] = @poet.id 
