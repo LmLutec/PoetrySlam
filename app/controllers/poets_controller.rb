@@ -1,5 +1,3 @@
-require 'pry'
-
 class PoetsController < ApplicationController
 
     get '/poets' do 

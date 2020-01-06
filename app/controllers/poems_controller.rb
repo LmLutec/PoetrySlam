@@ -1,5 +1,3 @@
-require 'pry'
-
 class PoemsController < ApplicationController
 
     get '/poems' do 
@@ -64,7 +62,7 @@ class PoemsController < ApplicationController
             @poet = current_user
             @poem = Poem.find_by(id: params[:id])
             @poem.delete 
-            #session[:id] = @poet.id 
+    
             erb:"/poets/home"
     end 
 
