@@ -1,3 +1,4 @@
+require 'pry'
 class PoemsController < ApplicationController
 
     get '/poems' do 
@@ -31,7 +32,7 @@ class PoemsController < ApplicationController
 
     get '/poems/:id' do 
         @poem = Poem.find_by(id: params[:id])
-        @poet = current_user 
+        @poet = Poet.find(@poem.poet_id)
         erb:'poems/show'
     end 
 
