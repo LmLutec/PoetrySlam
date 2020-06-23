@@ -9,8 +9,6 @@
     </ul>
     <br><br>
 
-    <a href="default.asp" target="_blank">This is a link</a>
-
     <h3>Review your work</h3>
     <% @poet.poems.each do |poem|%>
       <ul>
@@ -22,7 +20,7 @@
         <input type="submit" value="Logout" name="logout" >
     </form>
 <br><br><br><br><br>
-<b>This link will delete your account permanently</b>
+<b style="color:red">This link will delete your account permanently</b>
 <form action="/poets/<%=@poet.id%>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input type="submit" value="DELETE ACCOUNT">
