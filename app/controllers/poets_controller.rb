@@ -39,10 +39,12 @@ class PoetsController < ApplicationController
     
     post '/login' do 
         if !logged_in?
-            @poet = Poet.find_by(poet_name: params[:poet_name])
+            @poet = Poet.find_by(email: params[:email])
             if @poet && @poet.authenticate(params[:password])
                 session[:poet_id] = @poet.id 
                 erb:"/poets/home"
+            else 
+                redirect to "/poets/login"
             end 
         
         else 
